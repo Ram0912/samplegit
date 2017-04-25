@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Github Profile</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+	     
+<link id="stylechange" rel="stylesheet" href="css/New.css">
+<style>
+.foo {
+  background-color: red;
+}
+
+blockquote 
+{ 
+  border-left: 5px solid rgba(0,0,0,0.2); 
+  margin-left: 0;
+  padding-left: 2em;
+}
+</style>
+</head>
+<body ng-app="myApp" ng-controller="githubViewer">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href=""><img
+					src="https://pbs.twimg.com/profile_images/519367942866104320/PB96rDH_.png"
+					width="100px" height="70px"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li>GitHub View</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><form class="navbar-form" name="searchUser"
+							ng-submit="search(username)">
+							<div class="input-group">
+								<input type="text" class="form-control" ng-model="username"
+									placeholder="Search for Github ">
+								<div class="input-group-btn">
+									<button class="btn btn-default" type="submit">
+										<span class="glyphicon glyphicon-search"></span>
+									</button>
+								</div>
+							</div>
+						</form></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<br>
+	<br>
+	<br>
+	<div class="container-fluid">
+		<div class="container">
+			<h3>Welcome {{message}}!</h3>
+			<div>{{error}}</div>
+			{{countdown}}
+		</div>
+		<div>
+			<div class="container">
+				<div class="row">
+					<div class=" col-md-2">
+						<a href="#/" data-toggle="tab"
+							class="btn btn-danger btn-sm btn-block" role="button">Profile</a>
+						<hr />
+						<ul class="nav nav-pills nav-stacked">
+							<li class="active"><a href="#demo" data-toggle="collapse"><span
+									class="badge pull-right">{{user.public_repos}}</span>
+									Repositories</a>
+								<ul id="demo" class="collapse" style="list-style: none;">
+									<li><a href="#/repos">Own Repos</a></li>
+									<li><a href="#/star">Starred repos</a></li>
+									<li><a href="#/forked">Forked repos</a></li>
+								</ul></li>
+							<li><a href="#/follower"><span class="badge pull-right">{{user.followers}}</span>Followers</a></li>
+							<li><a href="#/following"><span class="badge pull-right">{{user.following}}</span>Following</a></li>
+						</ul>
+					</div>
+					<div class="col-md-10" ng-show="user">
+						<!-- Nav tabs -->
+						<div ng-view=""></div>
+					</div>
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	 
+
+    <div ng-cloak ng-if="input.length > 0">
+        
+        <h2>HTML Preview</h2>
+        <div ng-bind-html="input | markdown" class="preview"></div>
+    
+    </div>
+    
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+		<script
+		src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+		<script
+		src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-sanitize.min.js"></script>
+
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="github.js"></script>
+	
+	
+</body>
+</html>

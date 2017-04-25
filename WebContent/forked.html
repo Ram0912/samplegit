@@ -1,0 +1,29 @@
+<!-- Nav tabs -->
+<div class="col-md-5">
+<ul class="nav nav-tabs">
+	<li class="active"><a href="#forked" data-toggle="tab"><span
+			class="glyphicon glyphicon-tags"></span> Forked Repos</a></li>
+</ul>
+<!-- Tab panes -->
+<div class="tab-pane fade in" id="forked">
+	<div class="list-group">
+		<a href="" class="list-group-item"
+			ng-repeat="repo in repos | orderBy:repoSortOrder | filter : {fork:true}">
+			<span class="glyphicon glyphicon-star-empty"></span><span
+			class="name" style="min-width: 120px;" ng-click="getFile($event)"
+			id="{{repo.name}}">{{repo.name}}</span> <span class="">{{repo.description}}</span>
+			<span class="text-muted" style="font-size: 11px;">-
+				{{repo.language}}</span>
+		</a>
+	</div>
+	
+</div>
+</div>
+<div class="col-md-5">
+<input ng-model="input" type="text" value="{{input}}" style='width:100%;' ng-hide="true">
+    <div ng-cloak ng-if="input.length > 0">
+        
+        <h2>HTML Preview</h2>
+        <div ng-bind-html="input | markdown" class="preview"></div>
+    </div>
+    </div>
