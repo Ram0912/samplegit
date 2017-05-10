@@ -11,9 +11,10 @@
 			ng-repeat="repo in repos | orderBy:repoSortOrder | filter : {fork:true}">
 			<span class="glyphicon glyphicon-star-empty"></span><span
 			class="name" style="min-width: 120px;" ng-click="getFile($event)"
-			id="{{repo.name}}">{{repo.name}}</span> <span class="">{{repo.description}}</span>
-			<span class="text-muted" style="font-size: 11px;">-
-				{{repo.language}}</span>
+			id="{{repo.name}}">{{repo.name}}</span> <span
+				class="">{{repo.description}}</span> <span class="text-muted"
+				style="font-size: 11px;">- {{repo.language}}</span><span
+				class="pull-right"></span>
 		</a>
 	</div>
 	
@@ -23,7 +24,8 @@
 <input ng-model="input" type="text" value="{{input}}" style='width:100%;' ng-hide="true">
     <div ng-cloak ng-if="input.length > 0">
         
-        <h2>HTML Preview</h2>
+        <h2>READ ME</h2>
         <div ng-bind-html="input | markdown" class="preview"></div>
+        <div ng-if="input">{{errorsd}}</div>
     </div>
     </div>

@@ -10,23 +10,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-
-	     
 <link id="stylechange" rel="stylesheet" href="css/New.css">
-<style>
-.foo {
-  background-color: red;
-}
 
-blockquote 
-{ 
-  border-left: 5px solid rgba(0,0,0,0.2); 
-  margin-left: 0;
-  padding-left: 2em;
-}
-</style>
 </head>
 <body ng-app="myApp" ng-controller="githubViewer">
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -91,39 +76,31 @@ blockquote
 							<li><a href="#/following"><span class="badge pull-right">{{user.following}}</span>Following</a></li>
 						</ul>
 					</div>
-					<div class="col-md-10" ng-show="user">
+					<div class="col-md-10">
 						<!-- Nav tabs -->
-						<div ng-view=""></div>
+						<div ng-hide="user">
+							<img src="https://media0.giphy.com/media/xuAmO76jCYpqM/giphy.gif"
+								width="100%" height="400px">
+						</div>
+						<div ng-view="" ng-show="user"></div>
 					</div>
-					
-					
 				</div>
 			</div>
 		</div>
 	</div>
-	
-	 
-
-    <div ng-cloak ng-if="input.length > 0">
-        
-        <h2>HTML Preview</h2>
-        <div ng-bind-html="input | markdown" class="preview"></div>
-    
-    </div>
-    
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
-		<script
+	<script
 		src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
-		<script
+	<script
 		src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-sanitize.min.js"></script>
 
 	<script type="text/javascript" src="app.js"></script>
 	<script type="text/javascript" src="script.js"></script>
 	<script type="text/javascript" src="github.js"></script>
-	
-	
+
+
 </body>
 </html>

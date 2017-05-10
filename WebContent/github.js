@@ -42,7 +42,16 @@
 				return response.data.content;
 			})
 		};
+		var getContent = function(repoName, username) {
+
+			return $http.get(
+					"https://api.github.com/repos/" + username + "/" + repoName
+							+ "/contents").then(function(response) {
+				return response.data;
+			})
+		};
 		return {
+			getContent : getContent,
 			getFollowers : getFollowers,
 			getFollowing : getFollowing,
 			getValue : getValue,

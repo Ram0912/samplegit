@@ -1,38 +1,34 @@
-var app = angular.module('myApp', [ 'ngRoute', 'ngSanitize']);
+var app = angular.module('myApp', [ 'ngRoute', 'ngSanitize' ]);
 
 app.config(function($routeProvider) {
 	$routeProvider
 
 	.when('/', {
-		templateUrl : 'profile.html',
+		templateUrl : 'views/profile.html',
 		controller : 'githubViewer'
-	})
-	.when('/demo', {
-		templateUrl : 'repos.html',
+	}).when('/demo', {
+		templateUrl : 'views/repos.html',
 		controller : 'githubViewer'
-	})
-	.when('/repos', {
-		templateUrl : 'ownrepos.html',
+	}).when('/repos', {
+		templateUrl : 'views/ownrepos.html',
 		controller : 'githubViewer'
 	})
 
 	.when('/star', {
-		templateUrl : 'star.html',
+		templateUrl : 'views/star.html',
+		controller : 'githubViewer'
+	}).when('/forked', {
+		templateUrl : 'views/forked.html',
+		controller : 'githubViewer'
+	}).when('/follower', {
+		templateUrl : 'views/followers.html',
+		controller : 'githubViewer'
+	}).when('/following', {
+		templateUrl : 'views/following.html',
 		controller : 'githubViewer'
 	})
-		.when('/forked', {
-		templateUrl : 'forked.html',
+.when('/ownrepocont', {
+		templateUrl : 'views/ownrepocont.html',
 		controller : 'githubViewer'
 	})
-	.when('/follower', {
-		templateUrl : 'followers.html',
-		controller : 'githubViewer'
-	})
-	.when('/following', {
-		templateUrl : 'following.html',
-		controller : 'githubViewer'
-	})
-	
-
-
 });

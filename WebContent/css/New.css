@@ -1,4 +1,4 @@
-span.name{
+#userName, span.name{
 	font-weight:bold;
 	 font-size:20px;
 }

@@ -1,4 +1,5 @@
 <!-- Nav tabs -->
+<div class="col-md-5">
 <ul class="nav nav-tabs">
 	<li class="active"><a href="#home" data-toggle="tab"><span
 			class="glyphicon glyphicon-inbox"> </span>Followers Repos</a></li>
@@ -10,13 +11,12 @@
 			<a href="" class="list-group-item"
 				ng-repeat="follower in followers | orderBy:followerSortOrder"> <span
 				class="avatar"><img ng-src="{{follower.avatar_url}}"
-					alt="{{follower.name}}" title="{{follower.name}}"></span><span
-				class="name" style="min-width: 120px; display: inline-block;"
-				ng-click="getFile($event)" id="{{follower.name}}">{{follower.name}}</span>
-				<span class="">{{follower.login}}</span> <span class="text-muted"
+					alt="{{follower.name}}" title="{{follower.name}}"></span>
+				<span class="name">{{follower.login}}</span> <span class="text-muted"
 				style="font-size: 11px;">{{follower.location}}</span><span
 				class="badge">{{}}</span> <span class="pull-right"></span>
 			</a>
 		</div>
 	</div>
 </div>
+</div>;

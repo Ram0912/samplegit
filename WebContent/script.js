@@ -1,9 +1,9 @@
-app.controller(
+app
+		.controller(
 				'githubViewer',
 				function($scope, github, $interval, $log, $anchorScroll,
 						$location) {
 
-					
 					var onUsercomplete = function(data) {
 						$scope.user = data;
 						github.getRepos($scope.user).then(onRepos, onError);
@@ -16,27 +16,35 @@ app.controller(
 
 					var onRepos = function(data) {
 						$scope.repos = data;
-						$location.hash("userdetails");
+
 						$anchorScroll();
 					};
 					var onStarred = function(data) {
 						$scope.starred = data;
-						$location.hash("userdetails");
+
 						$anchorScroll();
 					};
 					var onFollowers = function(data) {
 						$scope.followers = data;
-						$location.hash("userdetails");
+
 						$anchorScroll();
 					};
 					var onFollowing = function(data) {
 						$scope.following = data;
-						$location.hash("userdetails");
+
 						$anchorScroll();
 					};
 
 					var onError = function(reason) {
 						$scope.error = "Sorry please check your username"
+					};
+					var Errorsd = function(reason) {
+
+						if (!$scope.input) {
+							$scope.errorsd = "No ReadMe File Found";
+						} else {
+							$scope.errorsdt = "";
+						}
 					};
 
 					var decrementCountdown = function() {
@@ -47,11 +55,16 @@ app.controller(
 					};
 
 					$scope.getFile = function($event) {
-						github.getValue($event.target.id, $scope.user.login)
-								.then(onFiles, onError);
+						var reponame = $event.target.id;
+						github.getValue(reponame, $scope.user.login).then(
+								onFiles, Errorsd);
+						github.getContent(reponame, $scope.user.login).then(
+								onCont_list, onError);
 						console.log($scope.user.login);
 					}
-
+					var onCont_list = function(data) {
+						$scope.content_list = data;
+					};
 					var onFiles = function(data) {
 						var Base64 = {
 							_keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
@@ -170,7 +183,6 @@ app.controller(
 						}
 					};
 
-					
 					$scope.message = "GitHub Viewer";
 					$scope.repoSortOrder = "-stargazers_count";
 					$scope.countdown = 10;
@@ -179,18 +191,16 @@ app.controller(
 					/* $scope.readMeUrl = 'https://www.w3schools.com'; */
 					$scope.query = {}
 					$scope.queryBy = '$'
-						
-/*						$scope.input = 'Enter your [Markdown][1] here.' +
-				        '\n' +
-				        '\n- *first*' +
-				        '\n- **second**' +
-				        '\n- third' +
-				        '\n' +
-				        '\n[1]: http://daringfireball.net/projects/markdown/syntax';*/
+
+					/*
+					 * $scope.input = 'Enter your [Markdown][1] here.' + '\n' +
+					 * '\n- *first*' + '\n- **second**' + '\n- third' + '\n' +
+					 * '\n[1]:
+					 * http://daringfireball.net/projects/markdown/syntax';
+					 */
 				})
 
-				.filter('markdown', function() {
-				    var converter = new Showdown.converter();
-				    return converter.makeHtml;
-				});	
-				
+		.filter('markdown', function() {
+			var converter = new Showdown.converter();
+			return converter.makeHtml;
+		});
