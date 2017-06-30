@@ -47,12 +47,12 @@ app
 						}
 					};
 
-					var decrementCountdown = function() {
+				/*	var decrementCountdown = function() {
 						$scope.countdown -= 1;
 						if ($scope.countdown < 1) {
 							$scope.search($scope.username);
 						}
-					};
+					};*/
 
 					$scope.getFile = function($event) {
 						var reponame = $event.target.id;
@@ -168,11 +168,11 @@ app
 						$anchorScroll();
 					}
 
-					var countdownInterval = null;
+					/*var countdownInterval = null;
 					var startCountdown = function() {
 						countdownInterval = $interval(decrementCountdown, 1000,
 								$scope.countdown);
-					};
+					};*/
 
 					$scope.search = function(username) {
 						$log.info("Searching for " + username);
@@ -185,9 +185,9 @@ app
 
 					$scope.message = "GitHub Viewer";
 					$scope.repoSortOrder = "-stargazers_count";
-					$scope.countdown = 10;
+					//$scope.countdown = 10;
 					$scope.file = '';
-					startCountdown();
+					//startCountdown();
 					/* $scope.readMeUrl = 'https://www.w3schools.com'; */
 					$scope.query = {}
 					$scope.queryBy = '$'
